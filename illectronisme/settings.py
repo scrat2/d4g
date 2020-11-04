@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'design4green',
-        'USER': 'TeamRandom',
+        'USER': 'teamrandom',
         'PASSWORD': 'D4Gwinner2020',
-        'HOST': '127.0.0.1',
+        'HOST': 'vps-66b01329.vps.ovh.net',
         'PORT': '5432',
     }
 }

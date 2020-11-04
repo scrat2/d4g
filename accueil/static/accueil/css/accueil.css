@@ -7,11 +7,11 @@ html {
 
 body {width:100%;font-family: "Open Sans","Helvetica Neue",Arial,sans-serif; margin: 0; padding: 0}
 
-.header{border: 3px solid; padding-right: 1em; background-color:#fbfcfd;}
-.header img#logo {max-width:200px; float: left}
-.header h1{text-align: right; font-size:3vw; line-height: 70px}
+header{padding-right: 1em; background-color:#fbfcfd; border-bottom-style: double; border-top-color: #fbfcfd; border-top-style: dashed}
+header img#logo {max-width:200px; float: left; padding-top: 1em}
+header h1{text-align: right; font-size:30px; line-height: 70px}
 
-.contenu{padding-left: 1em}
+.contenu{margin-top: 4em;padding-left: 1em}
 
 h1, h2 {
 	color: lightslategray;
@@ -21,19 +21,17 @@ h1, h2 {
 	margin-bottom: 1em;
 }
 
-form{
-	margin-top: 4em;
-}
 
 .champsRecherche {
 		float: left;
 	}
 
-/* Use a media query to add a breakpoint at 600px: */
-@media screen and (max-width: 600px) {
-	.champsRecherche {
-		float: inherit;
-		width: 100%; /* The width is 100%, when the viewport is 600px or smaller */
-	}
+footer{	text-align: center;padding: 3px; background-color: grey; color: #fbfcfd; position: absolute; bottom: 0; display: block; width: 100%}
+
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+
+	.header h1{text-align: right; font-size:4vw; line-height: 70px}
 
 }

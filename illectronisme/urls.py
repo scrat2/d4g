@@ -21,6 +21,5 @@ from accueil import views
 
 urlpatterns = [
     url(r'^$', views.index), # "/accueil" will call the method "index" in "views.py"
-    url(r'^accueil/', include('accueil.urls')),
     url(r'admin/', admin.site.urls)
 ]

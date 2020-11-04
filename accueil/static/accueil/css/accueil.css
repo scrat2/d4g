@@ -21,17 +21,23 @@ h1, h2 {
 	margin-bottom: 1em;
 }
 
+.button{
+	position: absolute;
+	;
+}
 
-.champsRecherche {
-		float: left;
-	}
+tr{
+	display: table-row;
+}
 
 footer{	text-align: center;padding: 3px; background-color: grey; color: #fbfcfd; position: absolute; bottom: 0; display: block; width: 100%}
 
 
-/* Use a media query to add a breakpoint at 800px: */
-@media screen and (max-width: 800px) {
+/* Use a media query to add a breakpoint at 600px: */
+@media screen and (max-width: 600px) {
 
 	.header h1{text-align: right; font-size:4vw; line-height: 70px}
 
+	.champsRecherche tr{display: block; float: left}
+	.champsRecherche th, td{display: block}
 }

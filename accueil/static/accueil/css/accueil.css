@@ -1,8 +1,17 @@
+html {
+ /**
+  Setting the height to prevent the page from scrolling up in certain situations
+ **/
+ height: 100%;
+}
+
 body {
+    position: absolute;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: #000000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    color: white;
+}
+
+h1 {
+    position: center;
 }

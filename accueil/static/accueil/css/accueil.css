@@ -7,5 +7,26 @@ html {
 
 body {position: absolute;font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;color: black}
 
-.header {text-align:left;width:100%;padding-right:4%;box-sizing: border-box;}
-.header div img#logo {width:200px;}
+.header {text-align:left;width:100%;padding-right:4%;box-sizing: border-box;background:#fbfcfd;}
+.header img#logo {max-width:200px; height:auto}
+
+h1, h2 {
+	color: lightslategray;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:47px;
+	margin-bottom: 1em;
+}
+
+.champsRecherche {
+		float: left;
+		width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+	}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+	.champsRecherche {
+		float: inherit;
+		width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+	}
+}

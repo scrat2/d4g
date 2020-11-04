@@ -7,22 +7,40 @@
     <link rel="stylesheet" type="text/css" href="../../static/accueil/css/accueil.css">
 </head>
 <body>
-   <p>test</p>
-    <div>
-        <img id="logo" src="../../static/accueil/img/logo-inr.jpg">
+    <div class="header">
+        <img id="logo" alt="logo" src="../../static/accueil/img/logo-inr.jpg">
     </div>
     <div><h1>Projet D4G Team.Random()</h1></div>
-    <form action="url ou sont envoye les data collectees" method="get">
-        <div>
-            <label for="codePostal">Code Postal :</label>
-            <input type="number" id="codePostal" name="code_postal">
-        </div>
-        <div>
-            <button type="submit">rechercher</button>
-        </div>
-    </form>
-
-
-
+    <div>
+        <form action="url_pour_recup_les_data" method="get">
+                <div class="champsRecherche">
+                    <table>
+                        <tr>
+                            <th><label for="codePostal">Code Postal :</label></th>
+                            <th><label for="region">Région :</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="number" id="codePostal" name="code_postal"></td>
+                            <td><input type="text" id="region" name="region"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="champsRecherche">
+                    <table>
+                        <tr>
+                            <th><label for="departement">Département :</label></th>
+                            <th><label for="commune">Commune :</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="departement" name="departement"></td>
+                            <td><input type="text" id="commune" name="commune :"></td>
+                        </tr>
+                    </table>
+                </div>
+            <div>
+                <button type="submit">rechercher</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

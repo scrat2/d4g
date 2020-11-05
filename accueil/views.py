@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import SearchForm
-from .models import Communes
+from .models import Communes, Departements
 # Create your views here.
 
 
@@ -22,5 +22,9 @@ def index(request):
 
             if postalcode != "":
                 results = Communes.objects.filter(code_postal=postalcode)
+
+         #  if departement != "":
+             #import re
+            # results = Communes.objects.filter(re.search(r'^Departements.numdep[0-9]{3}', Communes.code_postal))
 
     return render(request, 'accueil/index.html', context)

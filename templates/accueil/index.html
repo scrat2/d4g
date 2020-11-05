@@ -26,7 +26,18 @@
                     <tr>
                         <td>
                             <select name="regions" id="regions">
-                                <option value="">--Choisissez une régions--</option>
+                                <option
+                                    {% if default_libreg %}
+                                        value="{{ default_libreg }}">
+                                    {% else %}
+                                        value="">
+                                    {% endif %}
+                                    {% if default_libreg %}
+                                        {{ default_libreg }}
+                                    {% else %}
+                                        --Choisissez une région--
+                                    {% endif %}
+                                </option>
                                 {% for region in regions %}
                                     <option value="{{ region.libreg }}">{{ region.libreg }}</option>
                                 {% endfor %}
@@ -34,7 +45,18 @@
                         </td>
                         <td>
                             <select name="departements" id="departements">
-                                <option value="">--Choisissez un département--</option>
+                                <option
+                                    {% if default_libdep %}
+                                        value="{{ default_libdep }}">
+                                    {% else %}
+                                        value="">
+                                    {% endif %}
+                                    {% if default_libdep %}
+                                        {{ default_libdep }}
+                                    {% else %}
+                                        --Choisissez un départment--
+                                    {% endif %}
+                                </option>
                                 {% for departement in departements %}
                                     <option value="{{ departement.libdep }}">{{ departement.libdep }}</option>
                                 {% endfor %}

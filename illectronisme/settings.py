@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import SESSION_ENGINE
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,7 +28,6 @@ SECRET_KEY = 'dv7zi#@nxkhhqu5dca#3vqbz=+1kml1&j9atewhk*bn3m&5*_2'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -129,7 +130,7 @@ STATIC_URL = '/static/'
 
 if os.environ.get('ENV') == 'PRODUCTION':
 
-# Static files settings
+    # Static files settings
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')

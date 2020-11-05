@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>DESIGN4GREEN</title>
     <link rel="stylesheet" type="text/css" href="{% static 'accueil/css/accueil.css' %}">
+    <!--script src="{%  static 'accueil/jquery-3.5.1.min.js' %}"></script-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -19,7 +20,7 @@
                 <table>
                     <tr>
                         <th><label for="{{ form.region.id_for_label }}"></label></th>
-                        <th><label for="{{ form.departement.id_for_label }}"></label></th>
+                        <th class="hiden"><label for="{{ form.departement.id_for_label }}"></label></th>
                         <th><label for="{{ form.postalCode.id_for_label }}"></label></th>
                         <th><label for="{{ form.commune.id_for_label }}"></label></th>
                     </tr>
@@ -43,7 +44,7 @@
                                 {% endfor %}
                             </select>
                         </td>
-                        <td>
+                        <td class="hiden">
                             <select name="departements" id="departements">
                                 <option
                                     {% if default_libdep %}
@@ -75,9 +76,9 @@
                 </table>
             </div>
             <div class="bouton">
-                <button type="submit">rechercher</button>
+                <button type="submit" id="rechercheRegion">rechercher</button>
+                <!--button type="submit" id="rechercheDep">rechercher</button-->
                 <button type="reset">Réinitialiser</button>
-                <!--button id="suivant" onclick="showForm()">Suivant</button-->
             </div>
             <div>
                 <button onclick="creationPDF()">Télécharger le résultat au format PDF</button>
@@ -95,9 +96,9 @@
         <p>CGU</p>
     </footer>
 
-    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
-    <script src="{%  static 'accueil/jspdf.min.js' %}"></script>
+
+    <!--script src="{%  static 'accueil/jspdf.min.js' %}"></script-->
     <script src="{% static 'accueil/js/jsPDF.js' %}"></script>
-    <!--script type="text/javascript" src="/js/showFormular.js"></script-->
+    <script src="{% static 'accueil/js/showFormular.js' %}"></script>
 </body>
 </html>

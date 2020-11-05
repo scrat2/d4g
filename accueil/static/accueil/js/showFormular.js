@@ -1,3 +1,5 @@
-   function showForm(){
-        document.getElementsByClassName("hide").style.display = "block";
-    }
+ $(document).ready(function () {
+     $("#rechercheRegion").click(function () {
+         $(".hide").css("visibility", "visible")
+     })
+ })

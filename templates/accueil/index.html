@@ -6,7 +6,7 @@
     <title>DESIGN4GREEN</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="jspdf.es.min.js"></script>
-    <script type="text/javascript" src="{%  static 'accueil/js/jsPDF.js' %}"></script>
+    <!--script type="text/javascript" src="{%  static 'accueil/js/jsPDF.js' %}"></script-->
     <script type="text/javascript" src="{%  static 'accueil/js/showFormular.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'accueil/css/accueil.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,25 +25,52 @@
                         <th><label for="{{ form.region.id_for_label }}"></label></th>
                         <th class="hide"><label for="{{ form.departement.id_for_label }}"></label></th>
                         <th class="hide2"><label for="{{ form.postalCode.id_for_label }}"></label></th>
-                        <th class="hide3"<label for="{{ form.commune.id_for_label }}"></label></th>
+                        <th class="hide3"><label for="{{ form.commune.id_for_label }}"></label></th>
                     </tr>
                     <tr>
-                        <td>{{ form.region }}</td>
-                        <td class="hide">{{ form.departement }}</td>
-                        <td class="hide2">{{ form.postalCode }}</td>
-                        <td class="hide3">{{ form.commune }}</td>
+                        <td>
+                            <select name="regions" id="regions">
+                                <option value="">--Choisissez une régions--</option>
+                                {% for region in regions %}
+                                    <option value="{{ region.libreg }}">{{ region.libreg }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <select name="departements" id="departements">
+                                <option value="">--Choisissez un département--</option>
+                                {% for departement in departements %}
+                                    <option value="{{ departement.libdep }}">{{ departement.libdep }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>{{ form.postalCode }}</td>
+                        <td>
+                            <select name="communes" id="communes">
+                                <option value="">--Choisissez une commune--</option>
+                                {% for commune in communes %}
+                                    <option value="{{ commune.libcom }}">{{ commune.libcom }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
                     </tr>
                 </table>
             </div>
             <div class="bouton">
                 <button type="submit">rechercher</button>
                 <button type="reset">Réinitialiser</button>
-                <button id="suivant" onclick="showForm()">Suivant</button>
+                <!--button id="suivant" onclick="showForm()">Suivant</button-->
             </div>
             <div>
-                <button type="javascript:creationPDF()">Télécharger le résultat au format PDF</button>
+                <!--button type="javascript:creationPDF()">Télécharger le résultat au format PDF</button-->
             </div>
         </form>
+        <div>
+            {% for resultat in resultats %}
+                <p>La commune {{ resultat.libcom }} à le code postal {{ resultat.code_postal }}</p>
+                <p>Elle est situé dans le département {{ resultat.libdep }} dans la région {{ resultat.libreg }}</p>
+            {% endfor %}
+        </div>
     </div>
     <footer>
         <p>@Team.Random()</p>

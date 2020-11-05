@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <title>DESIGN4GREEN</title>
     <link rel="stylesheet" type="text/css" href="{% static 'accueil/css/accueil.css' %}">
-    <script src="{%  static 'accueil/jquery-3.5.1.min.js' %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <header class="ignorePDF">
+    <header>
         <img id="logo" alt="logo" src="{% static 'accueil/img/logo-inr.jpg' %}">
         <h1>Projet D4G Team.Random()</h1>
     </header>
     <div class="contenu">
-        <form action="#" method="post" class="ignorePDF">
+        <form action="#" method="post">
             {% csrf_token %}
             <div class="champsRecherche">
                 <table>
@@ -84,19 +83,21 @@
                 <button onclick="creationPDF()">Télécharger le résultat au format PDF</button>
             </div>
         </form>
-        <div class="resultat">
+        <div class="resultats">
             {% for resultat in resultats %}
                 <p>La commune {{ resultat.libcom }} à le code postal {{ resultat.code_postal }}</p>
             {% endfor %}
         </div>
     </div>
-    <footer class="ignorePDF">
+    <footer>
         <p>@Team.Random()</p>
         <p>CGU</p>
     </footer>
 
 
+    <script src="{%  static 'accueil/jspdf.debug.js' %}"></script>
     <script src="{%  static 'accueil/jspdf.min.js' %}"></script>
+    <script src="{%  static 'accueil/jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'accueil/js/jsPDF.js' %}"></script>
     <!--script src="{% static 'accueil/js/showFormular.js' %}"></script-->
 </body>

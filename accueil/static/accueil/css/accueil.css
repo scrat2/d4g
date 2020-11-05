@@ -26,8 +26,6 @@ h1, h2 {
 	;
 }
 
-.hide, .hide2, .hide3 {display: initial}
-
 footer{	text-align: center;padding: 3px; background-color: grey; color: #fbfcfd; position: absolute; bottom: 0; display: block; width: 100%}
 
 

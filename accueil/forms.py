@@ -5,7 +5,7 @@ class SearchForm(forms.Form):
 
     postalCode = forms.CharField(
         label='PostalCode',
-        widget=forms.TextInput(attrs={'placeholder': 'Code postal'}),
+        widget=forms.NumberInput(attrs={'placeholder': 'Code postal'}),
         max_length=5,
         required=False
     )

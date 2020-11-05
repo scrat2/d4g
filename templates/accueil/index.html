@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>DESIGN4GREEN</title>
-    <link rel="stylesheet" type="text/css" href="../../static/accueil/css/accueil.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'accueil/css/accueil.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <header>
-        <img id="logo" alt="logo" src="../../static/accueil/img/logo-inr.jpg">
+        <img id="logo" alt="logo" src="{% static 'accueil/img/logo-inr.jpg' %}">
         <h1>Projet D4G Team.Random()</h1>
     </header>
     <div class="contenu">

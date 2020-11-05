@@ -7,7 +7,7 @@ class Regions(models.Model):
 
 
 class Departements(models.Model):
-    numdep = models.IntegerField(primary_key=True)
+    numdep = models.CharField(primary_key=True, max_length=4)
     libdep = models.CharField(max_length=50, null=False)
     numreg = models.ForeignKey(Regions, to_field='numreg', on_delete=models.CASCADE)
 

@@ -13,20 +13,21 @@
         <h1>Projet D4G Team.Random()</h1>
     </header>
     <div class="contenu">
-        <form action="url_pour_recup_les_data" method="get">
+        <form action="#" method="post">
+            {% csrf_token %}
             <div class="champsRecherche">
                 <table>
                     <tr>
-                        <th><label for="codePostal">Code Postal :</label></th>
-                        <th><label for="region">Région :</label></th>
-                        <th><label for="departement">Département :</label></th>
-                        <th><label for="commune">Commune :</label></th>
+                        <th><label for="{{ form.postalCode.id_for_label }}"></label></th>
+                        <th><label for="{{ form.region.id_for_label }}"></label></th>
+                        <th><label for="{{ form.departement.id_for_label }}"></label></th>
+                        <th><label for="{{ form.commune.id_for_label }}"></label></th>
                     </tr>
                     <tr>
-                        <td><input type="number" id="codePostal" name="code_postal"></td>
-                        <td><input type="text" id="region" name="region"></td>
-                        <td><input type="text" id="departement" name="departement"></td>
-                        <td><input type="text" id="commune" name="commune :"></td>
+                        <td>{{ form.postalCode }}</td>
+                        <td>{{ form.region }}</td>
+                        <td>{{ form.departement }}</td>
+                        <td>{{ form.commune }}</td>
                     </tr>
                 </table>
             </div>

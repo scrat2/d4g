@@ -12,21 +12,21 @@ class SearchForm(forms.Form):
 
     region = forms.CharField(
         label='region',
-        widget=forms.TextInput(attrs={'placeholder': 'region'}),
+        widget=forms.TextInput(attrs={'placeholder': 'Region'}),
         max_length=50,
         required=False
     )
 
     departement = forms.CharField(
         label='departement',
-        widget=forms.TextInput(attrs={'placeholder': 'departement'}),
+        widget=forms.TextInput(attrs={'placeholder': 'Departement'}),
         max_length=50,
         required=False
     )
 
     commune = forms.CharField(
         label='commune',
-        widget=forms.TextInput(attrs={'placeholder': 'commune'}),
+        widget=forms.TextInput(attrs={'placeholder': 'Commune'}),
         max_length=50,
         required=False
     )

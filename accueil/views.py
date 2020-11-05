@@ -45,3 +45,9 @@ def index(request):
 
 
     return render(request, 'accueil/index.html', context)
+
+def listdep(request):
+    departements = Departements.objects.filter(available=True)
+    formatted_dep = ["<li>{}</li>".format(Departements.libdep) for Departements in departements]
+    message = """<ul>{}</ul>""".format("\n".join(formatted_dep))
+    return HttpResponse(message)

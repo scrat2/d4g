@@ -7,6 +7,8 @@ from .models import Communes, Departements, Regions
 
 
 def index(request):
+
+    # Set bases of the view
     form = SearchForm
     regions = Regions.objects.all()
     context = {
@@ -15,42 +17,72 @@ def index(request):
     }
 
     if request.method == 'POST':
-        libreg = request.POST.get('regions')
-        libdep = request.POST.get('departements')
-        libcom = request.POST.get('communes')
+
         form = SearchForm(request.POST, request.FILES)
-        results = None
+
         if form.is_valid():
+
+            # Get forms data
+            libreg = request.POST.get('regions')
+            libdep = request.POST.get('departements')
+            libcom = request.POST.get('communes')
             postalcode = form.cleaned_data['postalCode']
 
+            # Check postal code to see if it has been filled
             if postalcode != "":
+                # Get communes with this postal code in the database
                 communes = Communes.objects.filter(code_postal=postalcode)
-                context['communes'] = communes
-                request.session['postalcode'] = postalcode
-                context['default_postal'] = request.session['postalcode']
-            # elif request.session['postalcode'] is not None:
-            #    context['default_postal'] = request.session['postalcode']
 
+                # Send all communes in the HTML
+                context['communes'] = communes
+
+            # Check region to see if it has been filled
             if libreg != "":
+                # Get region with this name in the database
                 region = Regions.objects.get(libreg=libreg)
+
+                # Get departements in this region in the database
                 departements = Departements.objects.filter(numreg_id=region.numreg)
+
+                # Send all departements in the HTML
                 context['departements'] = departements
+
+                # Set the region selected in the session to maintain it in the form
                 request.session['libreg'] = libreg
                 context['default_libreg'] = request.session['libreg']
-            # elif request.session['libreg'] is not None:
-            #    context['default_libreg'] = request.session['libreg']
 
-            if libdep != "":
-                departement = Departements.objects.get(libdep=libdep)
-                communes = Communes.objects.filter(numdep=departement.numdep)
-                context['communes'] = communes
-                request.session['libdep'] = libdep
-                context['default_libdep'] = request.session['libdep']
-            # elif request.session['libdep'] is not None:
-            #    context['default_libdep'] = request.session['libdep']
+                # Check departement to see if it has been filled
+                if libdep != "":
+                    # Get departement with this name in the database
+                    departement = Departements.objects.get(libdep=libdep)
 
-            if libcom != "":
-                results = Communes.objects.filter(libcom=libcom)
-                context['resultats'] = results
+                    # Get communes in this region in the database
+                    communes = Communes.objects.filter(numdep=departement.numdep)
+
+                    # Send all communes in the HTML
+                    context['communes'] = communes
+
+                    # Set the departement selected in the session to maintain it in the form
+                    request.session['libdep'] = libdep
+                    context['default_libdep'] = request.session['libdep']
+
+                    # Check commune to see if it has been filled
+                    if libcom != "":
+                        # Get communes with this name in this departement in the database
+                        communes = Communes.objects.filter(libcom=libcom, numdep=departement.numdep)
+                        final_list = []
+                        if request.session.get('final', None):
+                            for liste in request.session['final']:
+                                final_list.append(liste)
+
+                        for commune in communes:
+                            tmp = [region.numreg, region.libreg, departement.libdep,
+                                                        departement.numdep, commune.libcom, commune.code_postal]
+                            final_list.append(tmp)
+
+                        request.session['final'] = final_list
+                        # Send all communes in the HTML
+    if request.session.get('final', None):
+        context['final'] = request.session['final']
 
     return render(request, 'accueil/index.html', context)

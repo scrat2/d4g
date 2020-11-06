@@ -43,7 +43,7 @@
                                 {% endfor %}
                             </select>
                         </td>
-                        <td class="hiden">
+                        <td>
                             <select name="departements" id="departements">
                                 <option
                                     {% if default_libdep %}
@@ -84,9 +84,16 @@
             </div>
         </form>
         <div class="resultats">
-            {% for resultat in resultats %}
-                <p>La commune {{ resultat.libcom }} à le code postal {{ resultat.code_postal }}</p>
-            {% endfor %}
+            <table>
+                <tr>
+                    <td>N° region | Nom region | Nom departement | Nom ommune | Code postale</td>
+                </tr>
+                {% for com in final %}
+                <tr>
+                    <td>{{ com }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
     <footer>

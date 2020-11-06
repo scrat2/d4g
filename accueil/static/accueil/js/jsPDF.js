@@ -1,5 +1,5 @@
 function creationPDF() {
-            var doc = new jsPDF('p', 'cm', 'a4');
+            var doc = new jsPDF('l', 'cm', 'a3');
 
             doc.setProperties({
              title: 'Résultat de la recherche',
@@ -12,11 +12,10 @@ function creationPDF() {
 
             doc.setFontSize(9);
             doc.setFont("arial", "normal");
-            doc.text('Ce PDF est généré depuis de site web http://vps-66b01329.vps.ovh.net/, sujet : indice de fragilité numérique', 2, 2);
-            doc.text('auteur : Equipe 21, contexte: Design4Green', 2, 2.5 );
+            doc.text('Ce PDF est généré depuis de site web http://vps-66b01329.vps.ovh.net/, sujet : indice de fragilité numérique, auteur : Equipe 21, contexte: Design4Green', 2, 2);
 
             doc.setLineWidth(0.1);
-            doc.line(1,3,20,3);
+            doc.line(1,3,41,3);
 
             doc.setFontSize(20);
             doc.setFont("arial", "bold");

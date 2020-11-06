@@ -20,17 +20,16 @@
          $(".popup").css("display", "none");
      });
 
-     /*if ({% default_libreg %}="{{ default_libreg }}"){
-         $(".depform").css("visibility", "visible");
-         $("#btnrecherchedep").css("display", "initial");
-         $("#btnrecherchereg").css("display", "none");
-     }*/
+     $(window).on("unload", (function () {
+        alert("Goodbye");
+        $(".listresult").empty();
+     }));
 
+ });
 
-
-    /* $("#btnrecherchereg").click(function () {
-         $(".depform").css("visibility", "visible");
-         $("#btnrecherchedep").css("display", "initial");
-         $("#btnrecherchereg").css("display", "none");*/
-     });
- })
+function deleteItems() {
+    sessionStorage.clear();
+    $(".listresult").empty();
+    history.go(0);
+    window.location = "http://146.59.196.3";
+    }

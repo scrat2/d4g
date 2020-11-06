@@ -13,6 +13,11 @@
         <h1>Projet D4G Team numéro 21</h1>
     </header>
     <div class="contenu">
+        <div>
+            <p>USAGE : sélectionnez une région, appuyer sur "rechercher" pour générer la liste des départements concernés.</p>
+            <p>Répétez l'opération pour le champs du département.</p>
+            <p>Enfin, choisissez la commune de votre choix ou saisissez le code postal souhaité.</p>
+        </div>
         <form action="#" method="post">
             {% csrf_token %}
             <div class="champsRecherche">
@@ -75,25 +80,30 @@
                     </tr>
                 </table>
             </div>
-            <div class="bouton">
-                <button type="reset">Réinitialiser</button>
-                <button type="submit" id="btnrecherchereg">rechercherreg</button>
-                <button type="submit" id="btnrecherchedep">rechercherdep</button>
-
+            <div>
+                <button type="reset" onclick="deleteItems()">Réinitialiser</button>
+                <button type="submit" id="btnrecherchereg">rechercher</button>
             </div>
             <div>
                 <button onclick="creationPDF()">Télécharger le résultat au format PDF</button>
             </div>
         </form>
-        <div class="resultats">
-            <table>
+        <div>
+            <p>
+                La fragilité numérique est identifiée sur des critères liés à l'accès au numérique et sur le niveau de compétences de chacun et chacun.
+                L’indice de fragilité numérique des territoires a été produit dans le cadre de l’IncubO du SGAR Occitanie avec le concours de l’ANSA en partenariat avec la Mednum, grâce au soutien du Fond de transformation pour l’action publique.
+                L'indice de fragilité numérique, par sa représentation graphique, révèle les zones d'exclusion
+                numérique sur un territoire donné. Cet outil permet, que vous soyez une commune, un département
+                ou une région de comparer votre indice de fragilité numérique avec les autres territoires.
+            </p>
+            <table class="resultats">
                 <tr>
                     <td>region | region score global | region accees numerique | region accees information | region compétence numérique | region compétence administratif
                     departement | departement score global | departement accees numerique | departement accees information | departement compétence numérique | departement compétence administratif
                     commune | commune score global | commune accees numerique | commune accees information | commune compétence numérique | commune compétence administratif</td>
                 </tr>
                 {% for com in final %}
-                <tr>
+                <tr class="listresult">
                     <td>{{ com }}</td>
                 </tr>
                 {% endfor %}

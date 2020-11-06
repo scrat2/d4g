@@ -25,7 +25,24 @@ h1, h2 {
 	;
 }
 
-.hiden {visibility: hidden}
+/*.depform {visibility: hidden}
+.comform{visibility: hidden}
+
+#btnrecherchereg{
+	display: initial;
+}
+
+#btnrecherchedep{
+	display: none;
+}*/
+
+.popup{
+	display: none;
+	opacity: 50%;
+	background-color: black;
+	color: antiquewhite;
+	font-size: small;
+}
 
 footer{	text-align: center;padding: 3px; background-color: grey; color: #fbfcfd; position: absolute; bottom: 0; display: block; width: 100%}
 

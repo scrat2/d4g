@@ -76,8 +76,9 @@ def index(request):
                                 final_list.append(liste)
 
                         for commune in communes:
-                            tmp = [region.numreg, region.libreg, departement.libdep,
-                                                        departement.numdep, commune.libcom, commune.code_postal]
+                            tmp = [region.libreg, region.global_score, region.numeric_access, region.information_access, region.numeric_competence, region.administrative_competence,
+                                   departement.libdep, departement.global_score, departement.numeric_access, departement.information_access, departement.numeric_competence, departement.administrative_competence,
+                                    commune.libcom, commune.global_score, commune.numeric_access, commune.information_access, commune.numeric_competence, commune.administrative_competence]
                             final_list.append(tmp)
 
                         request.session['final'] = final_list

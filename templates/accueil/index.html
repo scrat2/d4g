@@ -14,8 +14,8 @@
     </header>
     <div class="contenu">
         <div>
-            <p>USAGE : sélectioner une région, appuyer sur "rechercher" pour générer la liste des départements concernés.</p>
-            <p>Répéter l'opération pour le champs du département.</p>
+            <p>USAGE : sélectionnez une région, appuyer sur "rechercher" pour générer la liste des départements concernés.</p>
+            <p>Répétez l'opération pour le champs du département.</p>
             <p>Enfin, choisissez la commune de votre choix ou saisissez le code postal souhaité.</p>
         </div>
         <form action="#" method="post">
@@ -81,15 +81,21 @@
                 </table>
             </div>
             <div>
-                <button type="reset" onclick="deleteItems()" id="reinitialiser">Réinitialiser</button>
+                <button type="reset" onclick="deleteItems()">Réinitialiser</button>
                 <button type="submit" id="btnrecherchereg">rechercher</button>
-                <!--button type="submit" id="btnrecherchedep">rechercherdep</button-->
             </div>
             <div>
                 <button onclick="creationPDF()">Télécharger le résultat au format PDF</button>
             </div>
         </form>
-        <div class="resultats">
+        <div>
+            <p>
+                La fragilité numérique est identifiée sur des critères liés à l'accès au numérique et sur le niveau de compétences de chacun et chacun.
+                L’indice de fragilité numérique des territoires a été produit dans le cadre de l’IncubO du SGAR Occitanie avec le concours de l’ANSA en partenariat avec la Mednum, grâce au soutien du Fond de transformation pour l’action publique.
+                L'indice de fragilité numérique, par sa représentation graphique, révèle les zones d'exclusion
+                numérique sur un territoire donné. Cet outil permet, que vous soyez une commune, un département
+                ou une région de comparer votre indice de fragilité numérique avec les autres territoires.
+            </p>
             <table class="resultats">
                 <tr>
                     <td>N° region | Nom region | Nom département | Nom Commune | Code Postal</td>

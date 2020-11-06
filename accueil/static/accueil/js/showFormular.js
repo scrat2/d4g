@@ -20,10 +20,10 @@
          $(".popup").css("display", "none");
      });
 
-     /*$("#reinitialiser").click(function(e){
-         e.preventDefault();
-         window.location = "http://127.0.0.1:8000";
-     });*/
+     $(window).on("unload", (function () {
+        alert("Goodbye");
+        $(".listresult").empty();
+     }));
 
  });
 
@@ -31,5 +31,5 @@ function deleteItems() {
     sessionStorage.clear();
     $(".listresult").empty();
     history.go(0);
-    window.location = "http://127.0.0.1:8000";
+    window.location = "http://146.59.196.3";
     }
